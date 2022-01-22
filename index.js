@@ -29,7 +29,6 @@ async function fetchWeatherData(city) {
 }
 
 async function processWeatherData(data, temperatureFormat) {
-  console.log(data);
   return {
     temperature: {
       current: kelvinToSelected(data.main.temp, temperatureFormat),
@@ -39,3 +38,17 @@ async function processWeatherData(data, temperatureFormat) {
     icon: `https://openweathermap.org/img/wn/${data.weather[0].icon}@4x.png`,
   };
 }
+
+async function getWeatherData(city, temperatureFormat) {
+  const raw = await fetchWeatherData(city);
+  const processed = await processWeatherData(raw, temperatureFormat);
+  return processed;
+}
+
+document.querySelector("#search").addEventListener("click", async () => {
+  const place = document.querySelector("#place").value;
+  if (place) {
+    const data = await getWeatherData(place, "celcius");
+    console.log(data);
+  }
+});
