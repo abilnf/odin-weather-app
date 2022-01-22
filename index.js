@@ -45,10 +45,29 @@ async function getWeatherData(city, temperatureFormat) {
   return processed;
 }
 
+function displayWeather(data) {
+  const content = document.querySelector(".content");
+  if (content.classList.contains("content--hidden")) {
+    content.style.maxHeight = `${content.scrollHeight * 2}px`;
+    content.classList.toggle("content--hidden");
+  }
+
+  document.querySelector(".current-temp").textContent =
+    data.temperature.current;
+  document.querySelector(
+    ".min-temp"
+  ).textContent = `Minimum: ${data.temperature.min}`;
+  document.querySelector(
+    ".max-temp"
+  ).textContent = `Maximum: ${data.temperature.max}`;
+  document.querySelector(".icon").setAttribute("src", data.icon);
+}
+
 document.querySelector("#search").addEventListener("click", async () => {
   const place = document.querySelector("#place").value;
   if (place) {
     const data = await getWeatherData(place, "celcius");
     console.log(data);
+    displayWeather(data);
   }
 });

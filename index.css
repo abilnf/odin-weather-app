@@ -1,0 +1,81 @@
+/* *,
+*::after,
+*::before {
+  box-sizing: border-box;
+} */
+
+html {
+  color-scheme: dark;
+  font-family: Roboto, sans-serif;
+}
+
+body {
+  padding: 0;
+  background-color: #222222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+#search-bar {
+  display: flex;
+}
+
+input[type="text"] {
+  font-size: 3em;
+}
+
+#search {
+  padding: 8px;
+  align-self: stretch;
+}
+
+#search img {
+  height: 100%;
+  width: 2.5em;
+  object-fit: contain;
+}
+
+.content {
+  background-color: #3f3f3f;
+  width: 80%;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+  transition: all 300ms ease-in-out;
+  overflow: hidden;
+}
+
+.content--hidden {
+  max-height: 0;
+  padding: 0;
+}
+
+.weather-box {
+  background-color: #222222;
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.weather-box img {
+  width: 150px;
+  height: 150px;
+}
+
+.current-temp {
+  font-size: 2em;
+}
+
+.max-temp,
+.min-temp {
+  align-self: flex-start;
+  /* margin: 4px; */
+}

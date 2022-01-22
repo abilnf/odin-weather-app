@@ -9,7 +9,24 @@
     <script src="index.js" defer></script>
   </head>
   <body>
-    <input id="place" type="text" placeholder="City, Country, Place, ...." />
-    <button id="search">Search</button>
+    <h1>How's the weather in</h1>
+    <div id="search-bar">
+      <input id="place" type="text" placeholder="City, Country, Place, ...." />
+      <button id="search">
+        <img
+          src="https://img.icons8.com/material-rounded/24/000000/search.png"
+          alt=""
+        />
+      </button>
+    </div>
+    <h1>?</h1>
+    <div class="content content--hidden">
+      <div class="weather-box">
+        <img src="http://openweathermap.org/img/wn/04d@4x.png" class="icon" />
+        <p><strong class="current-temp">1°C</strong></p>
+        <p class="max-temp">Minimum: 5°C</p>
+        <p class="min-temp">Maximum: -0.3°C</p>
+      </div>
+    </div>
   </body>
 </html>
