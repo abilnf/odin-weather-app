@@ -66,8 +66,23 @@ function displayWeather(data) {
 document.querySelector("#search").addEventListener("click", async () => {
   const place = document.querySelector("#place").value;
   if (place) {
-    const data = await getWeatherData(place, "celcius");
+    const data = await getWeatherData(place, localStorage.temperatureFormat);
     console.log(data);
     displayWeather(data);
   }
 });
+
+if (!localStorage.temperatureFormat) {
+  localStorage.temperatureFormat = "celcius";
+}
+
+function updateTempFormatButton() {
+  document.querySelector("#tempFormat").textContent =
+    localStorage.temperatureFormat === "celcius" ? "°C" : "°F";
+}
+document.querySelector("#tempFormat").addEventListener("click", () => {
+  localStorage.temperatureFormat =
+    localStorage.temperatureFormat === "celcius" ? "fahrenheit" : "celcius";
+  updateTempFormatButton();
+});
+updateTempFormatButton();
